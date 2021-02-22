@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddMemberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddMemberForm.Designer.cs">
+      <DependentUpon>AddMemberForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LotteryMachineMainSite.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddMemberForm.resx">
+      <DependentUpon>AddMemberForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LotteryMachineMainSite.resx">
       <DependentUpon>LotteryMachineMainSite.cs</DependentUpon>
     </EmbeddedResource>
