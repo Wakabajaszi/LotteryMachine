@@ -52,6 +52,7 @@
     <Compile Include="AddMemberForm.Designer.cs">
       <DependentUpon>AddMemberForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ILanguages.cs" />
     <Compile Include="LotteryMachineMainSite.cs">
       <SubType>Form</SubType>
     </Compile>
