@@ -118,6 +118,10 @@ namespace LotteryMachine
             // sexComboBox
             // 
             this.sexComboBox.FormattingEnabled = true;
+            this.sexComboBox.Items.AddRange(new object[] {
+            "choose",
+            "men",
+            "woman"});
             this.sexComboBox.Location = new System.Drawing.Point(33, 229);
             this.sexComboBox.Name = "sexComboBox";
             this.sexComboBox.Size = new System.Drawing.Size(180, 21);

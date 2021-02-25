@@ -3,6 +3,8 @@ namespace LotteryMachine
 {
     partial class MembersForm
     {
+      
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -44,7 +46,7 @@ namespace LotteryMachine
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.membersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Names = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.membersBindingSource)).BeginInit();
@@ -141,6 +143,7 @@ namespace LotteryMachine
             this.addMemberButton.TabIndex = 9;
             this.addMemberButton.Text = "Add";
             this.addMemberButton.UseVisualStyleBackColor = false;
+            this.addMemberButton.Click += new System.EventHandler(this.addMemberButton_Click);
             // 
             // editMemberButton
             // 
@@ -153,6 +156,7 @@ namespace LotteryMachine
             this.editMemberButton.TabIndex = 10;
             this.editMemberButton.Text = "Edit";
             this.editMemberButton.UseVisualStyleBackColor = false;
+            this.editMemberButton.Click += new System.EventHandler(this.editMemberButton_Click);
             // 
             // deleteMemberButton
             // 
@@ -172,7 +176,7 @@ namespace LotteryMachine
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
-            this.Name,
+            this.Names,
             this.Surname});
             this.dataGridView1.DataSource = this.membersBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -187,11 +191,11 @@ namespace LotteryMachine
             this.Id.Name = "Id";
             this.Id.Width = 30;
             // 
-            // Name
+            // Names
             // 
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            this.Name.Width = 93;
+            this.Names.HeaderText = "Name";
+            this.Names.Name = "Names";
+            this.Names.Width = 93;
             // 
             // Surname
             // 
@@ -240,9 +244,9 @@ namespace LotteryMachine
         private System.Windows.Forms.Button editMemberButton;
         private System.Windows.Forms.Button deleteMemberButton;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Surname;
         private System.Windows.Forms.BindingSource membersBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Names;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Surname;
     }
 }
