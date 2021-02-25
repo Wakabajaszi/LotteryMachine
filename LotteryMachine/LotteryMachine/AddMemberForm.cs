@@ -12,9 +12,15 @@ namespace LotteryMachine
 {
     public partial class AddMemberForm : Form
     {
-        public AddMemberForm()
+        public AddMemberForm(CreateFormDirector createFormDirector)
         {
             InitializeComponent();
+            nameTextBox.Text = createFormDirector.Builder.selectName();
+            surnameTextBox.Text = createFormDirector.Builder.selectSurname();
+            sexComboBox.SelectedIndex = createFormDirector.Builder.selectSex();
+            cityTextBox.Text  = createFormDirector.Builder.selectCity();
+            adressTextBox.Text = createFormDirector.Builder.selectAdress();
+            postcodeTextBox.Text = createFormDirector.Builder.selectPostCode();
         }
     }
 }

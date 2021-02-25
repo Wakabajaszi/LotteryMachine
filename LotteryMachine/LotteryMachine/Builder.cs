@@ -11,10 +11,17 @@ namespace LotteryMachine
         string name;
         string surname;
         int sex;
+        string city;
+        string adress;
+        string postCode;
+
 
         public string Name { get { return name; } set { name = value; } }
         public string Surname { get { return surname; } set { surname = value; } }
         public int Sex { get { return sex; } set { sex = value; } }
+        public string City { get { return city; } set { city = value; } }
+        public string Adress { get { return adress; } set { adress = value; } }
+        public string PostCode { get { return postCode; } set { postCode = value; } }
     }
 
     public abstract class Builder
@@ -27,24 +34,27 @@ namespace LotteryMachine
         public abstract string selectName();
         public abstract string selectSurname();
         public abstract int selectSex();
+        public abstract string selectCity();
+        public abstract string selectAdress();
+        public abstract string selectPostCode();
         public abstract void AddOrEdit(string name, string surname, int sex);
     }
-    class EditMemberForm : Builder //Concrete Builder
+    class EditMemberFormConcreteBuilder : Builder 
     {
         int id;
-        public EditMemberForm(int id)
+        public EditMemberFormConcreteBuilder(int id)
         {
             this.id = id;
         }
 
         public override string selectName()
         {
-            return "";
+            return "test";
         }
 
         public override string selectSurname()
         {
-            return "";
+            return "test";
         }
 
         public override int selectSex()
@@ -52,18 +62,32 @@ namespace LotteryMachine
             return 0;
         }
 
+       public override string selectCity()
+        {
+            return "test";
+        }
+
+        public override string selectAdress()
+        {
+            return "test";
+        }
+
+        public override string selectPostCode()
+        {
+            return "test";
+        }
         public override void AddOrEdit(string name, string surname, int sex)
         {
 
 
         }
     }
-    class AddMemberForm1 : Builder //Concrete Builder
+    class AddMemberFormConcreteBuilder : Builder 
     {
-        int id;
-        public AddMemberForm1(int id)
+        
+        public AddMemberFormConcreteBuilder()
         {
-            this.id = id;
+           
         }
 
         public override string selectName()
@@ -81,6 +105,20 @@ namespace LotteryMachine
             return 0;
         }
 
+        public override string selectCity()
+        {
+            return "";
+        }
+
+        public override string selectAdress()
+        {
+            return "";
+        }
+
+        public override string selectPostCode()
+        {
+            return "";
+        }
         public override void AddOrEdit(string name, string surname, int sex)
         {
 
@@ -101,6 +139,9 @@ namespace LotteryMachine
             builder.selectName();
             builder.selectSurname();
             builder.selectSex();
+            builder.selectCity();
+            builder.selectAdress();
+            builder.selectPostCode();
             return builder.Product;
         }
     }

@@ -97,6 +97,7 @@ namespace LotteryMachine
             this.membersButton.TabIndex = 5;
             this.membersButton.Text = "Members";
             this.membersButton.UseVisualStyleBackColor = false;
+            this.membersButton.Click += new System.EventHandler(this.membersButton_Click);
             // 
             // button2
             // 

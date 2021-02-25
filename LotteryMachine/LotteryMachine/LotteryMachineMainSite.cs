@@ -24,5 +24,11 @@ namespace LotteryMachine
         {
             lotteryMachineScreenControl1.StartAnimation();
         }
+
+        private void membersButton_Click(object sender, EventArgs e)
+        {
+            MembersForm members = new MembersForm();
+            members.Show();
+        }
     }
 }

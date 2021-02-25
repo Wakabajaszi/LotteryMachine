@@ -143,6 +143,7 @@ namespace LotteryMachine
             this.addMemberButton.TabIndex = 9;
             this.addMemberButton.Text = "Add";
             this.addMemberButton.UseVisualStyleBackColor = false;
+            this.addMemberButton.Click += new System.EventHandler(this.addMemberButton_Click);
             // 
             // editMemberButton
             // 
@@ -155,6 +156,7 @@ namespace LotteryMachine
             this.editMemberButton.TabIndex = 10;
             this.editMemberButton.Text = "Edit";
             this.editMemberButton.UseVisualStyleBackColor = false;
+            this.editMemberButton.Click += new System.EventHandler(this.editMemberButton_Click);
             // 
             // deleteMemberButton
             // 
