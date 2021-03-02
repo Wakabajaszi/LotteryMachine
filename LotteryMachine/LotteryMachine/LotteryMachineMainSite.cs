@@ -12,11 +12,15 @@ namespace LotteryMachine
 {
     public partial class LotteryMachineMainForm : Form
     {
+
+        public ILanguages language; 
+
         public LotteryMachineMainForm()
         {
             InitializeComponent();
-            
-
+            language = new PolishLanguage();
+            chooseLanguageComboBox.Items.AddRange(language.chooseLngCbValue());
+            ChangeFormLangauge();
 
         }
 
@@ -29,6 +33,35 @@ namespace LotteryMachine
         {
             MembersForm members = new MembersForm();
             members.Show();
+        }
+
+        private void chooseLangaugeButton_Click(object sender, EventArgs e)
+        {
+            if (chooseLanguageComboBox.SelectedIndex == 0)
+            {
+                language = new PolishLanguage();
+                chooseLanguageComboBox.Text = "wybierz język";
+            }
+            else if (chooseLanguageComboBox.SelectedIndex == 1)
+            {
+                language = new EnglishLanguage();
+                chooseLanguageComboBox.Text = "choose langauge";
+            }
+            ChangeFormLangauge();
+        }
+
+        private void ChangeFormLangauge()
+        {
+            chooseLanguageComboBox.Items.Clear();
+            chooseLanguageComboBox.Items.AddRange(language.chooseLngCbValue());
+            titleLabel.Text = language.Title();
+            chooseLangaugeButton.Text = language.chooseLngButton();
+            drawingButton.Text = language.StartButton();
+            membersButton.Text = language.membersButton();
+            winnersButton.Text = language.ShowWinnersButton();
+            lotteryMachineScreenControl1.Title = language.LotteryMachineTitle();
+            lotteryMachineScreenControl1.WinWord = language.winNameWord();
+
         }
     }
 }

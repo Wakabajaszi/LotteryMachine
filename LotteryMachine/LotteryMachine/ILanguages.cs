@@ -12,7 +12,7 @@ namespace LotteryMachine
     }
     public interface ILangagueLotteryMachineController
     {
-        
+
         string winNameWord();
         string LotteryMachineTitle();
     }
@@ -47,9 +47,9 @@ namespace LotteryMachine
         string[] chooseLngCbValue();
 
     }
-    
-    public interface ILanguages:ILangaugeMainSite,ILanguageMembers,ILanguageAddMemberForm,
-        ILangagueLotteryMachineController,ILangeugeWinnersForm
+
+    public interface ILanguages : ILangaugeMainSite, ILanguageMembers, ILanguageAddMemberForm,
+        ILangagueLotteryMachineController, ILangeugeWinnersForm
     {
     }
     class PolishLanguage : ILanguages
@@ -279,4 +279,5 @@ namespace LotteryMachine
 
 
     }
+    
 }
