@@ -14,15 +14,18 @@ namespace LotteryMachine
     {
         int choosenPersonId = 0;
         CreateFormDirector createFormDirector = new CreateFormDirector();
-        public MembersForm()
+        private ILanguages language;
+        public MembersForm(ILanguages language)
         {
+            this.language = language;
             InitializeComponent();
+            ChangeFormLangauge();
         }
 
         private void addMemberButton_Click(object sender, EventArgs e)
         {
             createFormDirector.Builder = new AddMemberFormConcreteBuilder();
-            AddMemberForm addMemberForm = new AddMemberForm(createFormDirector);
+            AddMemberForm addMemberForm = new AddMemberForm(createFormDirector, language);
             addMemberForm.Show();
 
         }
@@ -30,8 +33,18 @@ namespace LotteryMachine
         private void editMemberButton_Click(object sender, EventArgs e)
         {
             createFormDirector.Builder = new EditMemberFormConcreteBuilder(choosenPersonId);
-            AddMemberForm addMemberForm = new AddMemberForm(createFormDirector);
+            AddMemberForm addMemberForm = new AddMemberForm(createFormDirector, language);
             addMemberForm.Show();
+        }
+        private void ChangeFormLangauge() 
+        {
+            findLabel.Text = language.findLabel();
+            nameLabel.Text = language.nameLabel();
+            surnameLabel.Text = language.surnameLabeL();
+            addMemberButton.Text = language.addButton();
+            editMemberButton.Text = language.editButton();
+            deleteMemberButton.Text = language.deleteButton();
+            optionsLabel.Text = language.optionsLabel();
         }
     }
 }

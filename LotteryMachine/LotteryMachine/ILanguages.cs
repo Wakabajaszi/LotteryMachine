@@ -18,10 +18,13 @@ namespace LotteryMachine
     }
     public interface ILanguageAddMemberForm
     {
-        //AddMemberForm
+       
         string sexLabel();
         string[] sexComboBoxValue();
         string chooseMessege();
+        string CityLabel();
+        string AdressLabel();
+        string PostCodeLabel();
     }
     public interface ILanguageMembers
     {
@@ -60,6 +63,11 @@ namespace LotteryMachine
             return "Dodaj";
         }
 
+        public string AdressLabel()
+        {
+            return "Adres";
+        }
+
         public string chooseLngButton()
         {
             return "Zmień";
@@ -80,6 +88,11 @@ namespace LotteryMachine
         public string chooseMessege()
         {
             return "Musisz wprowadzić dane";
+        }
+
+        public string CityLabel()
+        {
+            return "Miasto";
         }
 
         public string conectionError()
@@ -129,6 +142,11 @@ namespace LotteryMachine
             return "Opcje";
         }
 
+        public string PostCodeLabel()
+        {
+            return "Kod Pocztowy";
+        }
+
         public string[] sexComboBoxValue()
         {
             string[] plec = { "wybierz", "mężczyzna", "kobieta" };
@@ -167,11 +185,16 @@ namespace LotteryMachine
 
 
     }
-    class EnglishLanguage : ILanguages //adaptowana klasa
+    class EnglishLanguage : ILanguages 
     {
         public string addButton()
         {
             return "Add";
+        }
+
+        public string AdressLabel()
+        {
+            return "Adress";
         }
 
         public string chooseLngButton()
@@ -193,6 +216,11 @@ namespace LotteryMachine
         public string chooseMessege()
         {
             return "You must insert values";
+        }
+
+        public string CityLabel()
+        {
+            return "City";
         }
 
         public string conectionError()
@@ -239,6 +267,11 @@ namespace LotteryMachine
         public string optionsLabel()
         {
             return "Options";
+        }
+
+        public string PostCodeLabel()
+        {
+            return "Post Code";
         }
 
         public string[] sexComboBoxValue()
