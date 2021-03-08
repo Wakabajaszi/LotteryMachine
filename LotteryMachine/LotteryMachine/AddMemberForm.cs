@@ -13,14 +13,16 @@ namespace LotteryMachine
     public partial class AddMemberForm : Form
     {
         private ILanguages language;
+        CreateFormDirector createFormDirector;
         public AddMemberForm(CreateFormDirector createFormDirector , ILanguages language)
         {
             this.language = language;
+            this.createFormDirector = createFormDirector;
             InitializeComponent();
-            FormSettings(createFormDirector);
+            FormSettings();
             ChangeFormLangauge();
         }
-        private void FormSettings(CreateFormDirector createFormDirector) 
+        private void FormSettings() 
         {
             nameTextBox.Text = createFormDirector.Builder.selectName();
             surnameTextBox.Text = createFormDirector.Builder.selectSurname();

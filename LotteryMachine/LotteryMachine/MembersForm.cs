@@ -8,10 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace LotteryMachine
 {
     public partial class MembersForm : Form
     {
+        MemberService.MemberServiceClient serviceClient = new MemberService.MemberServiceClient();
         int choosenPersonId = 0;
         CreateFormDirector createFormDirector = new CreateFormDirector();
         private ILanguages language;
@@ -36,7 +38,7 @@ namespace LotteryMachine
             AddMemberForm addMemberForm = new AddMemberForm(createFormDirector, language);
             addMemberForm.Show();
         }
-        private void ChangeFormLangauge() 
+        private void ChangeFormLangauge()
         {
             findLabel.Text = language.findLabel();
             nameLabel.Text = language.nameLabel();
@@ -46,5 +48,11 @@ namespace LotteryMachine
             deleteMemberButton.Text = language.deleteButton();
             optionsLabel.Text = language.optionsLabel();
         }
+    }
+    class test
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
     }
 }
