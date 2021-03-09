@@ -13,17 +13,27 @@ namespace LotteryMachine
 {
     public partial class MembersForm : Form
     {
+        int choosenPersonId;
+        
         MemberService.MemberServiceClient serviceClient = new MemberService.MemberServiceClient();
-        int choosenPersonId = 0;
         CreateFormDirector createFormDirector = new CreateFormDirector();
         private ILanguages language;
+
         public MembersForm(ILanguages language)
         {
             this.language = language;
             InitializeComponent();
             ChangeFormLangauge();
+            LoadData();
         }
+        private void LoadData() 
+        {
+            var members = serviceClient.GetAllMembers();
+            membersBindingSource.DataSource = members.Select(p => new { p.Id, p.Name, p.Surname }).ToList();
+            dataGridView1.DataSource = membersBindingSource;
 
+            choosenPersonId = members.FirstOrDefault().Id;
+        }
         private void addMemberButton_Click(object sender, EventArgs e)
         {
             createFormDirector.Builder = new AddMemberFormConcreteBuilder();
@@ -48,11 +58,16 @@ namespace LotteryMachine
             deleteMemberButton.Text = language.deleteButton();
             optionsLabel.Text = language.optionsLabel();
         }
+        
+        
+        
+        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            choosenPersonId = Int32.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+        }
+        
+
+
     }
-    class test
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-    }
+  
 }
