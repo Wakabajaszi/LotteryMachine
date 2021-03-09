@@ -41,12 +41,26 @@ namespace LotteryMachine
             addMemberForm.Show();
 
         }
-
         private void editMemberButton_Click(object sender, EventArgs e)
         {
             createFormDirector.Builder = new EditMemberFormConcreteBuilder(choosenPersonId);
             AddMemberForm addMemberForm = new AddMemberForm(createFormDirector, language);
             addMemberForm.Show();
+        }
+        private void deleteMemberButton_Click(object sender, EventArgs e)
+        {
+            var  member = serviceClient.GetMemberById(choosenPersonId);
+            var memberName = $"{member.Name} {member.Surname}";
+            DialogResult dialogResult = MessageBox.Show($"{language.deleteMessege()} {memberName}", $"{language.deleteButton()}", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                serviceClient.DeleteMember(choosenPersonId);
+                LoadData();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+
+            }
         }
         private void ChangeFormLangauge()
         {
@@ -65,9 +79,8 @@ namespace LotteryMachine
         {
             choosenPersonId = Int32.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
         }
+
         
-
-
     }
   
 }

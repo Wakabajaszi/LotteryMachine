@@ -169,6 +169,7 @@ namespace LotteryMachine
             this.deleteMemberButton.TabIndex = 11;
             this.deleteMemberButton.Text = "Delete";
             this.deleteMemberButton.UseVisualStyleBackColor = false;
+            this.deleteMemberButton.Click += new System.EventHandler(this.deleteMemberButton_Click);
             // 
             // dataGridView1
             // 
