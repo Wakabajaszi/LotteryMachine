@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="535858f5-7066-4be7-8d5f-fdf779a67f8f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/LotteryMachineService/Service1/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="8bec1baf-c147-47b3-9afc-ee542ea0ff92" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LotteryMachineService/Service1/?xsd=xsd0" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="3d64232c-d2c5-4fde-a27f-ea02da1b346e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LotteryMachineService/Service1/?disco" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="3f148ecb-3696-4290-8cd5-8ddbb51a4a21" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LotteryMachineService/Service1/?xsd=xsd2" />
+    <MetadataFile FileName="MemberService.wsdl" MetadataType="Wsdl" ID="cb6cedbe-c927-42ca-986a-139041c4593d" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LotteryMachineService/Service1/?wsdl" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="7ebeb6e1-d9f3-43cc-ba7c-53c6c637e2ee" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LotteryMachineService/Service1/?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -37,49 +37,68 @@ namespace LotteryMachine
         public abstract string selectCity();
         public abstract string selectAdress();
         public abstract string selectPostCode();
-        public abstract void AddOrEdit(string name, string surname, int sex);
+        public abstract void AddOrEdit(string name, string surname, int sex, string city, string adress, string postalCode);
     }
     class EditMemberFormConcreteBuilder : Builder 
     {
         int id;
+        MemberService.MemberServiceClient serviceClient = new MemberService.MemberServiceClient();
+        MemberService.MemberData member;
+
         public EditMemberFormConcreteBuilder(int id)
         {
             this.id = id;
+            member = serviceClient.GetMemberById(id);
+           
         }
-
+        
+        
         public override string selectName()
         {
-            return "test";
+            return member.Name;
         }
 
         public override string selectSurname()
         {
-            return "test";
+            
+            return member.Surname;
         }
 
         public override int selectSex()
         {
-            return 0;
+
+            return member.SexId;
         }
 
        public override string selectCity()
         {
-            return "test";
+            return member.City;
         }
 
         public override string selectAdress()
         {
-            return "test";
+            return member.Street;
         }
 
         public override string selectPostCode()
         {
-            return "test";
+            return member.PostalCode;
         }
-        public override void AddOrEdit(string name, string surname, int sex)
+        public override void AddOrEdit(string name, string surname, int sex, string city, string adress, string postalCode)
         {
 
-
+            MemberService.MemberData editedMember = new MemberService.MemberData()
+            {
+                Id = id,
+                Name = name,
+                Surname = surname,
+                SexId = sex,
+                City = city,
+                Street = adress,
+                PostalCode = postalCode
+            };
+            serviceClient.EditMember(editedMember);
+            
         }
     }
     class AddMemberFormConcreteBuilder : Builder 
@@ -119,10 +138,20 @@ namespace LotteryMachine
         {
             return "";
         }
-        public override void AddOrEdit(string name, string surname, int sex)
+        public override void AddOrEdit(string name, string surname, int sex, string city, string adress, string postalCode)
         {
+            MemberService.MemberServiceClient serviceClient = new MemberService.MemberServiceClient();
+            MemberService.MemberData member = new MemberService.MemberData() 
+            {
+                Name = name,
+                Surname = surname,
+                SexId = sex,
+                City = city,
+                Street = adress,
+                PostalCode = postalCode
+            };
 
-
+            serviceClient.AddMember(member);
         }
     }
     public class CreateFormDirector

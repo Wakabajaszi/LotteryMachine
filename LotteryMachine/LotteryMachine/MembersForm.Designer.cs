@@ -38,16 +38,16 @@ namespace LotteryMachine
             this.nameLabel = new System.Windows.Forms.Label();
             this.surnameLabel = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.SurnameTextBox = new System.Windows.Forms.TextBox();
+            this.surnameTextBox = new System.Windows.Forms.TextBox();
             this.optionsLabel = new System.Windows.Forms.Label();
             this.addMemberButton = new System.Windows.Forms.Button();
             this.editMemberButton = new System.Windows.Forms.Button();
             this.deleteMemberButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.membersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Names = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.membersBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -113,13 +113,15 @@ namespace LotteryMachine
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(114, 20);
             this.nameTextBox.TabIndex = 6;
+            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
-            // SurnameTextBox
+            // surnameTextBox
             // 
-            this.SurnameTextBox.Location = new System.Drawing.Point(29, 204);
-            this.SurnameTextBox.Name = "SurnameTextBox";
-            this.SurnameTextBox.Size = new System.Drawing.Size(114, 20);
-            this.SurnameTextBox.TabIndex = 7;
+            this.surnameTextBox.Location = new System.Drawing.Point(29, 204);
+            this.surnameTextBox.Name = "surnameTextBox";
+            this.surnameTextBox.Size = new System.Drawing.Size(114, 20);
+            this.surnameTextBox.TabIndex = 7;
+            this.surnameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // optionsLabel
             // 
@@ -148,6 +150,7 @@ namespace LotteryMachine
             // editMemberButton
             // 
             this.editMemberButton.BackColor = System.Drawing.Color.LemonChiffon;
+            this.editMemberButton.Enabled = false;
             this.editMemberButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.editMemberButton.ForeColor = System.Drawing.Color.Black;
             this.editMemberButton.Location = new System.Drawing.Point(124, 328);
@@ -161,6 +164,7 @@ namespace LotteryMachine
             // deleteMemberButton
             // 
             this.deleteMemberButton.BackColor = System.Drawing.Color.LemonChiffon;
+            this.deleteMemberButton.Enabled = false;
             this.deleteMemberButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.deleteMemberButton.ForeColor = System.Drawing.Color.Black;
             this.deleteMemberButton.Location = new System.Drawing.Point(70, 384);
@@ -169,38 +173,50 @@ namespace LotteryMachine
             this.deleteMemberButton.TabIndex = 11;
             this.deleteMemberButton.Text = "Delete";
             this.deleteMemberButton.UseVisualStyleBackColor = false;
+            this.deleteMemberButton.Click += new System.EventHandler(this.deleteMemberButton_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Names,
-            this.Surname});
+            this.idDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.surnameDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.membersBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(234, 57);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(266, 414);
             this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
             // 
-            // Id
+            // idDataGridViewTextBoxColumn
             // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Width = 30;
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Width = 30;
             // 
-            // Names
+            // nameDataGridViewTextBoxColumn
             // 
-            this.Names.HeaderText = "Name";
-            this.Names.Name = "Names";
-            this.Names.Width = 93;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 95;
             // 
-            // Surname
+            // surnameDataGridViewTextBoxColumn
             // 
-            this.Surname.HeaderText = "Surname";
-            this.Surname.Name = "Surname";
+            this.surnameDataGridViewTextBoxColumn.DataPropertyName = "Surname";
+            this.surnameDataGridViewTextBoxColumn.HeaderText = "Surname";
+            this.surnameDataGridViewTextBoxColumn.Name = "surnameDataGridViewTextBoxColumn";
+            this.surnameDataGridViewTextBoxColumn.Width = 97;
+            // 
+            // membersBindingSource
+            // 
+            this.membersBindingSource.AllowNew = false;
+            this.membersBindingSource.DataSource = typeof(LotteryMachine.MemberService.MemberData);
             // 
             // MembersForm
             // 
@@ -212,7 +228,7 @@ namespace LotteryMachine
             this.Controls.Add(this.editMemberButton);
             this.Controls.Add(this.addMemberButton);
             this.Controls.Add(this.optionsLabel);
-            this.Controls.Add(this.SurnameTextBox);
+            this.Controls.Add(this.surnameTextBox);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.surnameLabel);
             this.Controls.Add(this.nameLabel);
@@ -238,15 +254,15 @@ namespace LotteryMachine
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label surnameLabel;
         private System.Windows.Forms.TextBox nameTextBox;
-        private System.Windows.Forms.TextBox SurnameTextBox;
+        private System.Windows.Forms.TextBox surnameTextBox;
         private System.Windows.Forms.Label optionsLabel;
         private System.Windows.Forms.Button addMemberButton;
         private System.Windows.Forms.Button editMemberButton;
         private System.Windows.Forms.Button deleteMemberButton;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn surnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource membersBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Names;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Surname;
     }
 }

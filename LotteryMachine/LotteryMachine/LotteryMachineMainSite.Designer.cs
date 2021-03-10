@@ -36,10 +36,11 @@ namespace LotteryMachine
             this.rightWallLabel = new System.Windows.Forms.Label();
             this.drawingButton = new System.Windows.Forms.Button();
             this.membersButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.winnersButton = new System.Windows.Forms.Button();
             this.chooseLanguageComboBox = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lotteryMachineScreenControl1 = new LotteryMachineControlLibrary.LotteryMachineScreenControl();
+            this.chooseLangaugeButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,7 +92,7 @@ namespace LotteryMachine
             // 
             this.membersButton.BackColor = System.Drawing.Color.CadetBlue;
             this.membersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.membersButton.Location = new System.Drawing.Point(189, 358);
+            this.membersButton.Location = new System.Drawing.Point(189, 377);
             this.membersButton.Name = "membersButton";
             this.membersButton.Size = new System.Drawing.Size(122, 38);
             this.membersButton.TabIndex = 5;
@@ -99,28 +100,25 @@ namespace LotteryMachine
             this.membersButton.UseVisualStyleBackColor = false;
             this.membersButton.Click += new System.EventHandler(this.membersButton_Click);
             // 
-            // button2
+            // winnersButton
             // 
-            this.button2.BackColor = System.Drawing.Color.CadetBlue;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.Location = new System.Drawing.Point(189, 402);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(122, 38);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Winners";
-            this.button2.UseVisualStyleBackColor = false;
+            this.winnersButton.BackColor = System.Drawing.Color.CadetBlue;
+            this.winnersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.winnersButton.Location = new System.Drawing.Point(189, 421);
+            this.winnersButton.Name = "winnersButton";
+            this.winnersButton.Size = new System.Drawing.Size(122, 38);
+            this.winnersButton.TabIndex = 6;
+            this.winnersButton.Text = "Winners";
+            this.winnersButton.UseVisualStyleBackColor = false;
             // 
             // chooseLanguageComboBox
             // 
             this.chooseLanguageComboBox.FormattingEnabled = true;
-            this.chooseLanguageComboBox.Items.AddRange(new object[] {
-            "english",
-            "polish"});
             this.chooseLanguageComboBox.Location = new System.Drawing.Point(257, 293);
             this.chooseLanguageComboBox.Name = "chooseLanguageComboBox";
             this.chooseLanguageComboBox.Size = new System.Drawing.Size(121, 21);
             this.chooseLanguageComboBox.TabIndex = 7;
-            this.chooseLanguageComboBox.Text = "choose language";
+            this.chooseLanguageComboBox.Text = "dasdas";
             // 
             // panel1
             // 
@@ -142,14 +140,26 @@ namespace LotteryMachine
             this.lotteryMachineScreenControl1.Title = "play and win";
             this.lotteryMachineScreenControl1.WinWord = "Winner";
             // 
+            // chooseLangaugeButton
+            // 
+            this.chooseLangaugeButton.BackColor = System.Drawing.Color.CadetBlue;
+            this.chooseLangaugeButton.Location = new System.Drawing.Point(278, 320);
+            this.chooseLangaugeButton.Name = "chooseLangaugeButton";
+            this.chooseLangaugeButton.Size = new System.Drawing.Size(75, 27);
+            this.chooseLangaugeButton.TabIndex = 8;
+            this.chooseLangaugeButton.Text = "Choose";
+            this.chooseLangaugeButton.UseVisualStyleBackColor = false;
+            this.chooseLangaugeButton.Click += new System.EventHandler(this.chooseLangaugeButton_Click);
+            // 
             // LotteryMachineMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(500, 471);
+            this.Controls.Add(this.chooseLangaugeButton);
             this.Controls.Add(this.chooseLanguageComboBox);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.winnersButton);
             this.Controls.Add(this.membersButton);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.drawingButton);
@@ -173,10 +183,11 @@ namespace LotteryMachine
         private System.Windows.Forms.Label rightWallLabel;
         private System.Windows.Forms.Button drawingButton;
         private System.Windows.Forms.Button membersButton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button winnersButton;
         private System.Windows.Forms.ComboBox chooseLanguageComboBox;
         private System.Windows.Forms.Panel panel1;
         private LotteryMachineScreenControl lotteryMachineScreenControl1;
+        private System.Windows.Forms.Button chooseLangaugeButton;
     }
 }
 

@@ -193,6 +193,7 @@ namespace LotteryMachine
             this.addMemberButton.TabIndex = 18;
             this.addMemberButton.Text = "Add";
             this.addMemberButton.UseVisualStyleBackColor = false;
+            this.addMemberButton.Click += new System.EventHandler(this.addMemberButton_Click);
             // 
             // AddMemberForm
             // 
