@@ -26,14 +26,24 @@ namespace LotteryMachine
         }
 
         private void drawingButton_Click_1(object sender, EventArgs e)
-        {
+        { 
+            lotteryMachineScreenControl1.InitializeControl();
+            lotteryMachineScreenControl1.WinnerName = "";
             lotteryMachineScreenControl1.StartAnimation();
+            Winner();
         }
 
         private void membersButton_Click(object sender, EventArgs e)
         {
-            MembersForm members = new MembersForm(language);
-            members.Show();
+            try
+            {
+                MembersForm members = new MembersForm(language);
+                members.Show();
+            }
+            catch 
+            {
+                MessageBox.Show(language.conectionError(), "Error");
+            }
         }
 
         private void chooseLangaugeButton_Click(object sender, EventArgs e)
@@ -62,6 +72,17 @@ namespace LotteryMachine
             winnersButton.Text = language.ShowWinnersButton();
             lotteryMachineScreenControl1.Title = language.LotteryMachineTitle();
             lotteryMachineScreenControl1.WinWord = language.winNameWord();
+        }
+
+        private void Winner() 
+        {
+            
+            MemberService.MemberServiceClient serviceClient = new MemberService.MemberServiceClient();
+            var members = serviceClient.GetAllMembers();
+            var winner = members.OrderBy(r => Guid.NewGuid()).Take(1).First();
+            lotteryMachineScreenControl1.WinnerName = $"{winner.Name} {winner.Surname}";
+             
+
         }
     }
 }

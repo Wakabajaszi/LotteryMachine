@@ -28,11 +28,18 @@ namespace LotteryMachine
         }
         private void LoadData() 
         {
-            var members = serviceClient.GetAllMembers();
-            membersBindingSource.DataSource = members.Select(p => new { p.Id, p.Name, p.Surname }).ToList();
-            dataGridView1.DataSource = membersBindingSource;
-
-            choosenPersonId = members.FirstOrDefault().Id;
+            
+            {
+                var members = serviceClient.GetAllMembers();
+                if(members.Count() != 0) 
+                {
+                    membersBindingSource.DataSource = members.Select(p => new { p.Id, p.Name, p.Surname }).ToList();
+                    dataGridView1.DataSource = membersBindingSource;
+                    choosenPersonId = members.FirstOrDefault().Id;
+                }
+               
+            }
+           
         }
         private void addMemberButton_Click(object sender, EventArgs e)
         {
@@ -72,12 +79,33 @@ namespace LotteryMachine
             deleteMemberButton.Text = language.deleteButton();
             optionsLabel.Text = language.optionsLabel();
         }
-        
-        
-        
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (choosenPersonId != 0)
+            {
+                editMemberButton.Enabled = true;
+                deleteMemberButton.Enabled = true;
+            }
+        }
+
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             choosenPersonId = Int32.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+        }
+
+        private void nameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var members = serviceClient.GetAllMembers();
+            var find = (from cz in members
+                          where cz.Name.Contains(nameTextBox.Text)
+                          where cz.Surname.Contains(surnameTextBox.Text)
+                          orderby cz.Surname
+                          select cz);
+
+
+            dataGridView1.DataSource = find.ToList();
+            dataGridView1.Refresh();
         }
 
         

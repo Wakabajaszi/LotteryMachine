@@ -38,7 +38,7 @@ namespace LotteryMachine
             this.nameLabel = new System.Windows.Forms.Label();
             this.surnameLabel = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.SurnameTextBox = new System.Windows.Forms.TextBox();
+            this.surnameTextBox = new System.Windows.Forms.TextBox();
             this.optionsLabel = new System.Windows.Forms.Label();
             this.addMemberButton = new System.Windows.Forms.Button();
             this.editMemberButton = new System.Windows.Forms.Button();
@@ -113,13 +113,15 @@ namespace LotteryMachine
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(114, 20);
             this.nameTextBox.TabIndex = 6;
+            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
-            // SurnameTextBox
+            // surnameTextBox
             // 
-            this.SurnameTextBox.Location = new System.Drawing.Point(29, 204);
-            this.SurnameTextBox.Name = "SurnameTextBox";
-            this.SurnameTextBox.Size = new System.Drawing.Size(114, 20);
-            this.SurnameTextBox.TabIndex = 7;
+            this.surnameTextBox.Location = new System.Drawing.Point(29, 204);
+            this.surnameTextBox.Name = "surnameTextBox";
+            this.surnameTextBox.Size = new System.Drawing.Size(114, 20);
+            this.surnameTextBox.TabIndex = 7;
+            this.surnameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // optionsLabel
             // 
@@ -148,6 +150,7 @@ namespace LotteryMachine
             // editMemberButton
             // 
             this.editMemberButton.BackColor = System.Drawing.Color.LemonChiffon;
+            this.editMemberButton.Enabled = false;
             this.editMemberButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.editMemberButton.ForeColor = System.Drawing.Color.Black;
             this.editMemberButton.Location = new System.Drawing.Point(124, 328);
@@ -161,6 +164,7 @@ namespace LotteryMachine
             // deleteMemberButton
             // 
             this.deleteMemberButton.BackColor = System.Drawing.Color.LemonChiffon;
+            this.deleteMemberButton.Enabled = false;
             this.deleteMemberButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.deleteMemberButton.ForeColor = System.Drawing.Color.Black;
             this.deleteMemberButton.Location = new System.Drawing.Point(70, 384);
@@ -185,6 +189,7 @@ namespace LotteryMachine
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(266, 414);
             this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
             // 
             // idDataGridViewTextBoxColumn
@@ -223,7 +228,7 @@ namespace LotteryMachine
             this.Controls.Add(this.editMemberButton);
             this.Controls.Add(this.addMemberButton);
             this.Controls.Add(this.optionsLabel);
-            this.Controls.Add(this.SurnameTextBox);
+            this.Controls.Add(this.surnameTextBox);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.surnameLabel);
             this.Controls.Add(this.nameLabel);
@@ -249,7 +254,7 @@ namespace LotteryMachine
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label surnameLabel;
         private System.Windows.Forms.TextBox nameTextBox;
-        private System.Windows.Forms.TextBox SurnameTextBox;
+        private System.Windows.Forms.TextBox surnameTextBox;
         private System.Windows.Forms.Label optionsLabel;
         private System.Windows.Forms.Button addMemberButton;
         private System.Windows.Forms.Button editMemberButton;

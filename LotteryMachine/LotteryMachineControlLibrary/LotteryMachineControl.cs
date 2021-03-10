@@ -13,11 +13,11 @@ namespace LotteryMachineControlLibrary
     public partial class LotteryMachineScreenControl : UserControl
     {
         private string winWord = "Win";
-        private string winnerNameWord = "winner";
+        private string winnerName = "winner";
         private string title = "play and win";
         private Color colorFirst = Color.White;
         private Color colorSecond = Color.Red;
-        // komentarz1
+        
         public string WinWord
         {
             get
@@ -32,24 +32,23 @@ namespace LotteryMachineControlLibrary
                 }
             }
         }
-        //komentarz2
-        public string WinnerNameWord
+        
+        public string WinnerName
         {
             get
             {
-                return winnerNameWord;
+                return winnerName;
             }
-            //set
-            //{
-            //    if (value.Length >= 1 && value.Length <= 10)
-            //    {
-            //        winnerNameWord = value;
-            //        winnerNameLabel.Text = value;
-            //        winnerNameLabel.Refresh();
-            //    }
-            //}
+            set 
+            {
+                winnerName = value;
+                winnerNameLabel.Text = value;
+                winnerNameLabel.Refresh();
+               
+            }
+            
         }
-        //komentarz3
+        
         public string Title
         {
             get
@@ -62,7 +61,7 @@ namespace LotteryMachineControlLibrary
                 titleLabel.Text = value;
             }
         }
-        //komentarz4
+        
         public Color ColorFirst
         {
             get
@@ -74,7 +73,7 @@ namespace LotteryMachineControlLibrary
                 colorFirst = value;
             }
         }
-        //komentarz5
+        
         public Color ColorSecond
         {
             get
@@ -96,9 +95,10 @@ namespace LotteryMachineControlLibrary
 
         }
 
-        //komentarz6
-        private void InitializeControl()
+        
+        public void InitializeControl()
         {
+            letterSquarePanel.Controls.Clear();
             int translation = 0;
             int panelWidth = letterSquarePanel.Width;
             for (int i = 0; i < 10; i++)
@@ -112,9 +112,9 @@ namespace LotteryMachineControlLibrary
                 translation += panelWidth / 10;
             }
         }
-        //komentarz
         private void TranslationAnimation()
         {
+            
             int bufor = letterSquarePanel.Controls.Count;
             for (int i = 0; i < letterSquarePanel.Controls.Count; i++)
             {
@@ -133,7 +133,7 @@ namespace LotteryMachineControlLibrary
                 bufor--;
             }
         }
-        //komentarz
+       
         private void FlashAnimation()
         {
             for (int i = 0; i < 15; i++)
@@ -160,7 +160,7 @@ namespace LotteryMachineControlLibrary
                 j = 0;
             }
         }
-        //komentarz
+        
         private void ShowWinnerName()
         {
             letterSquarePanel.Controls.Clear();
@@ -184,7 +184,7 @@ namespace LotteryMachineControlLibrary
                 translation += panelWidth / 10;
             }
         }
-        //komentarz
+        
         public void StartAnimation()
         {
             TranslationAnimation();

@@ -43,5 +43,24 @@ namespace LotteryMachine
             sexComboBox.Items.AddRange(language.sexComboBoxValue());
             sexComboBox.SelectedIndex = 0;
         }
+
+        private void addMemberButton_Click(object sender, EventArgs e)
+        {
+            string name = nameTextBox.Text;
+            string surname = surnameTextBox.Text;
+            int sexId = sexComboBox.SelectedIndex;
+            string city = cityTextBox.Text;
+            string adress = adressTextBox.Text;
+            string postalCode = postcodeTextBox.Text;
+            if(name != "" && surname != "" && sexId != 0 && city != "" && adress != "" && postalCode != "") 
+            {
+                createFormDirector.Builder.AddOrEdit(name, surname, sexId, city, adress, postalCode);
+            }
+            else
+            {
+                MessageBox.Show($"{language.chooseMessege()}", "Error", MessageBoxButtons.OK);
+            }
+            
+        }
     }
 }

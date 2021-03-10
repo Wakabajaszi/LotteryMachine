@@ -151,7 +151,7 @@ namespace LotteryMachine
                 PostalCode = postalCode
             };
 
-
+            serviceClient.AddMember(member);
         }
     }
     public class CreateFormDirector
