@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace LotteryMachine
 {
-    public partial class MembersForm : Form
+    public partial class MembersForm : Form, IObserver
     {
         int choosenPersonId;
         
@@ -44,14 +44,14 @@ namespace LotteryMachine
         private void addMemberButton_Click(object sender, EventArgs e)
         {
             createFormDirector.Builder = new AddMemberFormConcreteBuilder();
-            AddMemberForm addMemberForm = new AddMemberForm(createFormDirector, language);
+            AddMemberForm addMemberForm = new AddMemberForm(createFormDirector, language, this);
             addMemberForm.Show();
 
         }
         private void editMemberButton_Click(object sender, EventArgs e)
         {
             createFormDirector.Builder = new EditMemberFormConcreteBuilder(choosenPersonId);
-            AddMemberForm addMemberForm = new AddMemberForm(createFormDirector, language);
+            AddMemberForm addMemberForm = new AddMemberForm(createFormDirector, language, this);
             addMemberForm.Show();
         }
         private void deleteMemberButton_Click(object sender, EventArgs e)
@@ -98,17 +98,20 @@ namespace LotteryMachine
         {
             var members = serviceClient.GetAllMembers();
             var find = (from cz in members
-                          where cz.Name.Contains(nameTextBox.Text)
-                          where cz.Surname.Contains(surnameTextBox.Text)
-                          orderby cz.Surname
-                          select cz);
-
-
-            dataGridView1.DataSource = find.ToList();
+                        where cz.Name.Contains(nameTextBox.Text)
+                        where cz.Surname.Contains(surnameTextBox.Text)
+                        orderby cz.Surname
+                        select cz);
+          
+            membersBindingSource.DataSource = find.Select(p => new { p.Id, p.Name, p.Surname }).ToList();
+            dataGridView1.DataSource = membersBindingSource;
             dataGridView1.Refresh();
         }
 
-        
+        public void Reaction()
+        {
+            LoadData();
+        }
     }
   
 }

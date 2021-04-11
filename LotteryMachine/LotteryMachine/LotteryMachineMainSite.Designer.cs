@@ -36,7 +36,6 @@ namespace LotteryMachine
             this.rightWallLabel = new System.Windows.Forms.Label();
             this.drawingButton = new System.Windows.Forms.Button();
             this.membersButton = new System.Windows.Forms.Button();
-            this.winnersButton = new System.Windows.Forms.Button();
             this.chooseLanguageComboBox = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lotteryMachineScreenControl1 = new LotteryMachineControlLibrary.LotteryMachineScreenControl();
@@ -100,17 +99,6 @@ namespace LotteryMachine
             this.membersButton.UseVisualStyleBackColor = false;
             this.membersButton.Click += new System.EventHandler(this.membersButton_Click);
             // 
-            // winnersButton
-            // 
-            this.winnersButton.BackColor = System.Drawing.Color.CadetBlue;
-            this.winnersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.winnersButton.Location = new System.Drawing.Point(189, 421);
-            this.winnersButton.Name = "winnersButton";
-            this.winnersButton.Size = new System.Drawing.Size(122, 38);
-            this.winnersButton.TabIndex = 6;
-            this.winnersButton.Text = "Winners";
-            this.winnersButton.UseVisualStyleBackColor = false;
-            // 
             // chooseLanguageComboBox
             // 
             this.chooseLanguageComboBox.FormattingEnabled = true;
@@ -138,6 +126,7 @@ namespace LotteryMachine
             this.lotteryMachineScreenControl1.Size = new System.Drawing.Size(300, 162);
             this.lotteryMachineScreenControl1.TabIndex = 0;
             this.lotteryMachineScreenControl1.Title = "play and win";
+            this.lotteryMachineScreenControl1.WinnerName = "winner";
             this.lotteryMachineScreenControl1.WinWord = "Winner";
             // 
             // chooseLangaugeButton
@@ -159,7 +148,6 @@ namespace LotteryMachine
             this.ClientSize = new System.Drawing.Size(500, 471);
             this.Controls.Add(this.chooseLangaugeButton);
             this.Controls.Add(this.chooseLanguageComboBox);
-            this.Controls.Add(this.winnersButton);
             this.Controls.Add(this.membersButton);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.drawingButton);
@@ -183,7 +171,6 @@ namespace LotteryMachine
         private System.Windows.Forms.Label rightWallLabel;
         private System.Windows.Forms.Button drawingButton;
         private System.Windows.Forms.Button membersButton;
-        private System.Windows.Forms.Button winnersButton;
         private System.Windows.Forms.ComboBox chooseLanguageComboBox;
         private System.Windows.Forms.Panel panel1;
         private LotteryMachineScreenControl lotteryMachineScreenControl1;
