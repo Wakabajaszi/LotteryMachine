@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace LotteryMachine
 {
-    public partial class MembersForm : Form
+    public partial class MembersForm : Form, IObserver
     {
         int choosenPersonId;
         
@@ -44,14 +44,14 @@ namespace LotteryMachine
         private void addMemberButton_Click(object sender, EventArgs e)
         {
             createFormDirector.Builder = new AddMemberFormConcreteBuilder();
-            AddMemberForm addMemberForm = new AddMemberForm(createFormDirector, language);
+            AddMemberForm addMemberForm = new AddMemberForm(createFormDirector, language, this);
             addMemberForm.Show();
 
         }
         private void editMemberButton_Click(object sender, EventArgs e)
         {
             createFormDirector.Builder = new EditMemberFormConcreteBuilder(choosenPersonId);
-            AddMemberForm addMemberForm = new AddMemberForm(createFormDirector, language);
+            AddMemberForm addMemberForm = new AddMemberForm(createFormDirector, language, this);
             addMemberForm.Show();
         }
         private void deleteMemberButton_Click(object sender, EventArgs e)
@@ -108,7 +108,10 @@ namespace LotteryMachine
             dataGridView1.Refresh();
         }
 
-        
+        public void Reaction()
+        {
+            LoadData();
+        }
     }
   
 }

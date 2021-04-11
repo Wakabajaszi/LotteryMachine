@@ -14,13 +14,15 @@ namespace LotteryMachine
     {
         private ILanguages language;
         CreateFormDirector createFormDirector;
-        public AddMemberForm(CreateFormDirector createFormDirector , ILanguages language)
+        RefreshGridClass refreshGrid = new RefreshGridClass();
+        public AddMemberForm(CreateFormDirector createFormDirector , ILanguages language, MembersForm membersForm)
         {
             this.language = language;
             this.createFormDirector = createFormDirector;
             InitializeComponent();
             FormSettings();
             ChangeFormLangauge();
+            refreshGrid.AddObserver(membersForm);
         }
         private void FormSettings() 
         {
@@ -55,6 +57,7 @@ namespace LotteryMachine
             if(name != "" && surname != "" && sexId != 0 && city != "" && adress != "" && postalCode != "") 
             {
                 createFormDirector.Builder.AddOrEdit(name, surname, sexId, city, adress, postalCode);
+                refreshGrid.Refresh();
             }
             else
             {
