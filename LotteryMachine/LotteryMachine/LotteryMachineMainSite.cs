@@ -69,19 +69,24 @@ namespace LotteryMachine
             chooseLangaugeButton.Text = language.chooseLngButton();
             drawingButton.Text = language.StartButton();
             membersButton.Text = language.membersButton();
-            winnersButton.Text = language.ShowWinnersButton();
             lotteryMachineScreenControl1.Title = language.LotteryMachineTitle();
             lotteryMachineScreenControl1.WinWord = language.winNameWord();
         }
 
         private void Winner() 
         {
-            
-            MemberService.MemberServiceClient serviceClient = new MemberService.MemberServiceClient();
-            var members = serviceClient.GetAllMembers();
-            var winner = members.OrderBy(r => Guid.NewGuid()).Take(1).First();
-            lotteryMachineScreenControl1.WinnerName = $"{winner.Name} {winner.Surname}";
-             
+            try
+            {
+                MemberService.MemberServiceClient serviceClient = new MemberService.MemberServiceClient();
+                var members = serviceClient.GetAllMembers();
+                var winner = members.OrderBy(r => Guid.NewGuid()).Take(1).First();
+                lotteryMachineScreenControl1.WinnerName = $"{winner.Name} {winner.Surname}";
+            }
+            catch
+            {
+                MessageBox.Show(language.conectionError(), "Error");
+            }
+
 
         }
     }

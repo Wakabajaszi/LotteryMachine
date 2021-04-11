@@ -20,8 +20,8 @@ namespace LotteryMachine
             this.language = language;
             this.createFormDirector = createFormDirector;
             InitializeComponent();
-            FormSettings();
             ChangeFormLangauge();
+            FormSettings();
             refreshGrid.AddObserver(membersForm);
         }
         private void FormSettings() 

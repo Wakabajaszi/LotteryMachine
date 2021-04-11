@@ -98,13 +98,13 @@ namespace LotteryMachine
         {
             var members = serviceClient.GetAllMembers();
             var find = (from cz in members
-                          where cz.Name.Contains(nameTextBox.Text)
-                          where cz.Surname.Contains(surnameTextBox.Text)
-                          orderby cz.Surname
-                          select cz);
-
-
-            dataGridView1.DataSource = find.ToList();
+                        where cz.Name.Contains(nameTextBox.Text)
+                        where cz.Surname.Contains(surnameTextBox.Text)
+                        orderby cz.Surname
+                        select cz);
+          
+            membersBindingSource.DataSource = find.Select(p => new { p.Id, p.Name, p.Surname }).ToList();
+            dataGridView1.DataSource = membersBindingSource;
             dataGridView1.Refresh();
         }
 
