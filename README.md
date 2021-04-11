@@ -4,3 +4,5 @@ A program that draws winner from a group of people added to database. Provides o
 
 ## Program to properly work need LotteryMachineService: 
 https://github.com/Wakabajaszi/LotteryMachineService
+
+You must start server from LotteryMachineService
